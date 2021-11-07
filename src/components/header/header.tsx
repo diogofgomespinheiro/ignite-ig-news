@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import SignInButton from '../signin-button/signin-button';
+import SignInButton from '@components/signin-button';
 
 import styles from './styles.module.scss';
 

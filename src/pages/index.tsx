@@ -1,8 +1,8 @@
 import { GetStaticProps } from 'next';
 
-import HomeScreen, { HomeScreenProps } from '../screens/home';
-import { stripe } from '../services/stripe';
-import { formatCurrency } from '../utils';
+import HomeScreen, { HomeScreenProps } from '@screens/home';
+import { stripe } from '@services/stripe';
+import { formatCurrency } from '@utils/price';
 
 export default function Home(props: HomeScreenProps) {
   return <HomeScreen {...props} />;

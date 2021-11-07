@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-import SubscribeButton from '../../components/subscribe-button/subscribe-button';
+import SubscribeButton from '@components/subscribe-button';
 
 import styles from './styles.module.scss';
 
