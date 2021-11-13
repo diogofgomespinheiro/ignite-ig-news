@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import { useSession } from 'next-auth/client';
 
 import styles from './styles.module.scss';
 
@@ -14,6 +16,9 @@ export type PostsScreenProps = {
 };
 
 function PostsScreen({ posts }: PostsScreenProps) {
+  const [session] = useSession();
+  const postBasePath = session?.activeSubscription ? '/posts' : '/posts/preview';
+
   return (
     <>
       <Head>
@@ -22,11 +27,13 @@ function PostsScreen({ posts }: PostsScreenProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map(post => (
-            <a key={post.slug}>
-              <time>{post.updatedAt}</time>
-              <strong>{post.title}</strong>
-              <p>{post.excerpt}</p>
-            </a>
+            <Link key={post.slug} href={`${postBasePath}/${post.slug}`}>
+              <a>
+                <time>{post.updatedAt}</time>
+                <strong>{post.title}</strong>
+                <p>{post.excerpt}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>
